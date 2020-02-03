@@ -23,7 +23,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 6.10;
+                return 5.99;
             }
         }
 
@@ -34,7 +34,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 171;
+                return 190;
             }
         }
 
@@ -47,8 +47,8 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
-                if (!bread) instructions.Add("hold bread");
-                if (!pickle) instructions.Add("hold sour pickle");
+                if (!Bread) instructions.Add("hold bread");
+                if (!Pickle) instructions.Add("hold pickle");
 
                 return instructions;
             }

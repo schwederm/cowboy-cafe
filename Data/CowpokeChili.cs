@@ -12,7 +12,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// If the chili is topped with cheese
         /// </summary>
-        public bool Cheese
+        public bool Cheese 
         {
             get { return cheese; }
             set { cheese = value; }
@@ -22,7 +22,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// If the chili is topped with sour cream
         /// </summary>
-        public bool SourCream
+        public bool SourCream 
         {
             get { return sourCream; }
             set { sourCream = value; }
@@ -32,7 +32,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// If the chili is topped with green onions
         /// </summary>
-        public bool GreenOnions
+        public bool GreenOnions 
         {
             get { return greenOnions; }
             set { greenOnions = value; }
