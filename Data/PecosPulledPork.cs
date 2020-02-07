@@ -4,22 +4,22 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    public class PecosPulledPork
+    public class PecosPulledPork : Entree
     {
         /// <summary>
-        /// If the sandwich comes with bread
+        /// If the Pecos Pulled Pork comes with bread
         /// </summary>
         public bool Bread { get; set; } = true;
 
         /// <summary>
-        /// If the sandwich comes with a pickle
+        /// If the Pecos Pulled Pork comes with a pickle
         /// </summary>
         public bool Pickle { get; set; } = true;
 
         /// <summary>
-        /// The price of the sandwich
+        /// The price of the Pecos Pulled Pork
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -28,9 +28,9 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The calories of the sandwich
+        /// The calories of the Pecos Pulled Pork
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -39,9 +39,9 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Special instructions for the preparation of the sandwich
+        /// Special instructions for the preparation of the Pecos Pulled Pork
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

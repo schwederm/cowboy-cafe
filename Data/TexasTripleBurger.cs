@@ -4,60 +4,60 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    public class TexasTripleBurger
+    public class TexasTripleBurger : Entree
     {
         /// <summary>
-        /// If the burger comes with buns
+        /// If the Texas Triple Burger comes with buns
         /// </summary>
         public bool Bun { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with ketchup
+        /// If the Texas Triple Burger comes with ketchup
         /// </summary>
         public bool Ketchup { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with mustard
+        /// If the Texas Triple Burger comes with mustard
         /// </summary>
         public bool Mustard { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with pickle
+        /// If the Texas Triple Burger comes with pickle
         /// </summary>
         public bool Pickle { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with cheese
+        /// If the Texas Triple Burger comes with cheese
         /// </summary>
         public bool Cheese { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with tomato
+        /// If the Texas Triple Burger comes with tomato
         /// </summary>
         public bool Tomato { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with lettuce
+        /// If the Texas Triple Burger comes with lettuce
         /// </summary>
         public bool Lettuce { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with mayo
+        /// If the Texas Triple Burger comes with mayo
         /// </summary>
         public bool Mayo { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with bacon
+        /// If the Texas Triple Burger comes with bacon
         /// </summary>
         public bool Bacon { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with egg
+        /// If the Texas Triple Burger comes with egg
         /// </summary>
         public bool Egg { get; set; } = true;
 
         /// <summary>
-        /// The price of the burger
+        /// The price of the Texas Triple Burger
         /// </summary>
         public double Price
         {
@@ -68,7 +68,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The calories of the burger
+        /// The calories of the Texas Triple Burger
         /// </summary>
         public uint Calories
         {
@@ -79,7 +79,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Special instructions for the preparation of the burger
+        /// Special instructions for the preparation of the Texas Triple Burger
         /// </summary>
         public List<string> SpecialInstructions
         {

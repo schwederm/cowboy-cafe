@@ -6,11 +6,11 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Cowpoke Chili entree
     /// </summary>
-    public class CowpokeChili
+    public class CowpokeChili : Entree
     {
         private bool cheese = true;
         /// <summary>
-        /// If the chili is topped with cheese
+        /// If the Cowpoke Chili is topped with cheese
         /// </summary>
         public bool Cheese 
         {
@@ -20,7 +20,7 @@ namespace CowboyCafe.Data
 
         private bool sourCream = true;
         /// <summary>
-        /// If the chili is topped with sour cream
+        /// If the Cowpoke Chili is topped with sour cream
         /// </summary>
         public bool SourCream 
         {
@@ -30,7 +30,7 @@ namespace CowboyCafe.Data
 
         private bool greenOnions = true;
         /// <summary>
-        /// If the chili is topped with green onions
+        /// If the Cowpoke Chili is topped with green onions
         /// </summary>
         public bool GreenOnions 
         {
@@ -40,7 +40,7 @@ namespace CowboyCafe.Data
 
         private bool tortillaStrips = true;
         /// <summary>
-        /// If the chili is topped with tortilla strips
+        /// If the Cowpoke Chili is topped with tortilla strips
         /// </summary>
         public bool TortillaStrips
         {
@@ -49,9 +49,9 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The price of the chili
+        /// The price of the Cowpoke Chili
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -60,9 +60,9 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The calories of the chili
+        /// The calories of the Cowpoke Chili
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -71,9 +71,9 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Special instructions for the preparation of the chili
+        /// Special instructions for the preparation of the Cowpoke Chili
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

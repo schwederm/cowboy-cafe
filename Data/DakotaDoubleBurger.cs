@@ -4,52 +4,52 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    public class DakotaDoubleBurger
+    public class DakotaDoubleBurger : Entree
     {
         /// <summary>
-        /// If the burger comes with buns
+        /// If the Dakota Double Burger comes with buns
         /// </summary>
         public bool Bun { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with ketchup
+        /// If the Dakota Double Burger comes with ketchup
         /// </summary>
         public bool Ketchup { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with mustard
+        /// If the Dakota Double Burger comes with mustard
         /// </summary>
         public bool Mustard { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with pickle
+        /// If the Dakota Double Burger comes with pickle
         /// </summary>
         public bool Pickle { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with cheese
+        /// If the Dakota Double Burger comes with cheese
         /// </summary>
         public bool Cheese { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with tomato
+        /// If the Dakota Double Burger comes with tomato
         /// </summary>
         public bool Tomato { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with lettuce
+        /// If the Dakota Double Burger comes with lettuce
         /// </summary>
         public bool Lettuce { get; set; } = true;
 
         /// <summary>
-        /// If the burger comes with mayo
+        /// If the Dakota Double Burger comes with mayo
         /// </summary>
         public bool Mayo { get; set; } = true;
 
         /// <summary>
-        /// The price of the burger
+        /// The price of the Dakota Double Burger
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -58,9 +58,9 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The calories of the burger
+        /// The calories of the Dakota Double Burger
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -69,9 +69,9 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Special instructions for the preparation of the burger
+        /// Special instructions for the preparation of the Dakota Double Burger
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

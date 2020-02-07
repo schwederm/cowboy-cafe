@@ -4,10 +4,10 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    public class RustlersRibs
+    public class RustlersRibs : Entree
     {
         /// <summary>
-        /// The price of the ribs
+        /// The price of the Rustlers Ribs
         /// </summary>
         public double Price
         {
@@ -18,7 +18,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The calories of the ribs
+        /// The calories of the Rustlers Ribs
         /// </summary>
         public uint Calories
         {
@@ -29,7 +29,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Special instructions for the preparation of the ribs
+        /// Special instructions for the preparation of the Rustlers Ribs
         /// </summary>
         public List<string> SpecialInstructions
         {
