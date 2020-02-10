@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Matt Schweder
+ * Class Name: TrailBurger.cs
+ * Purpose: This class holds all the optional ingredients, price, calories, and special instructions for the Trail Burger
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -34,7 +40,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The price of the Trail Burger
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -45,7 +51,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The calories of the Trail Burger
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -56,7 +62,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Special instructions for the preparation of the Trail Burger
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

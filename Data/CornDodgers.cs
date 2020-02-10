@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Matt Schweder
+ * Class Name: CornDodgers.cs
+ * Purpose: This class holds the price and calories of the Corn Dodgers.
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +12,9 @@ namespace CowboyCafe.Data
 {
     public class CornDodgers : Side
     {
+        /// <summary>
+        /// The calories of Corn Dodgers
+        /// </summary>
         public override uint Calories
         {
             get
@@ -24,6 +33,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// The price of the Corn Dodgers
+        /// </summary>
         public override double Price
         {
             get
@@ -36,6 +48,8 @@ namespace CowboyCafe.Data
                         return 1.79;
                     case Size.Large:
                         return 1.99;
+                    default:
+                        return 1.59;
                 }
             }
         }

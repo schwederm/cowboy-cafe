@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Bean
+ * Edited By: Matt Schweder
+ * Class Name: Side.cs
+ * Purpose: This class is the overarching abstract class for all sides which holds the size, price, and calories for the sides.
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,7 +19,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the size of the side
         /// </summary>
-        public virtual Size Size { get; set; }
+        public virtual Size Size { get; }
 
         /// <summary>
         /// Gets the price of the side

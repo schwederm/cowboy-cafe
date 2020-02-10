@@ -1,4 +1,10 @@
 ﻿using System;
+/*
+ * Author: Matt Schweder
+ * Class Name: BakedBeans.cs
+ * Purpose: This class holds price and calories of the Baked Beans.
+*/
+
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +12,9 @@ namespace CowboyCafe.Data
 {
     public class BakedBeans : Side
     {
+        /// <summary>
+        /// The calories of the Baked Beans
+        /// </summary>
         public override uint Calories
         {
             get
@@ -24,6 +33,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// The price of the Baked Beans
+        /// </summary>
         public override double Price
         {
             get
@@ -36,6 +48,8 @@ namespace CowboyCafe.Data
                         return 1.79;
                     case Size.Large:
                         return 1.99;
+                    default:
+                        return 1.59;
                 }
             }
         }

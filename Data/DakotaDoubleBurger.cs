@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Matt Schweder
+ * Class Name: DakotaDoubleBurger.cs
+ * Purpose: This class holds all the optional ingredients, price, calories, and special instructions for the Dakota Double Burger.
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

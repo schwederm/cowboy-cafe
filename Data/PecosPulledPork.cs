@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Matt Schweder
+ * Class Name: PecosPulledPork.cs
+ * Purpose: This class holds all the optional ingredients, price, calories, and special instructions for the Peco's Pulled Pork
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

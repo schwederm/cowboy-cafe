@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Bean
+ * Edited By: Matt Schweder
+ * Class Name: CowpokeChilli.cs
+ * Purpose: This class holds all the optional ingredients, price, calories, and the special instructions for the Cowpoke Chilli
+*/
+
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

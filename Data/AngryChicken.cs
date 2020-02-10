@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ *  Author: Matt Schweder
+ *  Class Name: AngryChicken.cs
+ *  Purpose: This class holds all the optional ingredients, price, calories, and special instructions for the Angry Chicken sandwich.
+*/
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
