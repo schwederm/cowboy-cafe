@@ -1,10 +1,10 @@
-﻿using System;
-/*
+﻿/*
  * Author: Matt Schweder
  * Class Name: BakedBeans.cs
  * Purpose: This class holds the size, price, and calories of the Baked Beans.
 */
 
+using System;
 using System.Collections.Generic;
 using System.Text;
 
