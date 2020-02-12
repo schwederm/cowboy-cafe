@@ -2,7 +2,7 @@
 /*
  * Author: Matt Schweder
  * Class Name: BakedBeans.cs
- * Purpose: This class holds price and calories of the Baked Beans.
+ * Purpose: This class holds the size, price, and calories of the Baked Beans.
 */
 
 using System.Collections.Generic;
@@ -12,6 +12,11 @@ namespace CowboyCafe.Data
 {
     public class BakedBeans : Side
     {
+        /// <summary>
+        /// The size of the Baked Beans
+        /// </summary>
+        public override Size Size { get; set; } = Size.Small;
+
         /// <summary>
         /// The calories of the Baked Beans
         /// </summary>

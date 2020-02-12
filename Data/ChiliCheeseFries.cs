@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Matt Schweder
  * Class Name: ChilliCheeseFries.cs
- * Purpose: This class holds the price and calories of the Chilli Cheese Fries.
+ * Purpose: This class holds the size, price, and calories of the Chilli Cheese Fries.
 */
 
 using System;
@@ -12,6 +12,11 @@ namespace CowboyCafe.Data
 {
     public class ChiliCheeseFries : Side
     {
+        /// <summary>
+        /// The size of the Chilli Cheese Fries
+        /// </summary>
+        public override Size Size { get; set; } = Size.Small;
+
         /// <summary>
         /// The calories of the Chilli Cheese Fries
         /// </summary>

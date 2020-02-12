@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Matt Schweder
  * Class Name: CornDodgers.cs
- * Purpose: This class holds the price and calories of the Corn Dodgers.
+ * Purpose: This class holds the size, price, and calories of the Corn Dodgers.
 */
 
 using System;
@@ -12,6 +12,11 @@ namespace CowboyCafe.Data
 {
     public class CornDodgers : Side
     {
+        /// <summary>
+        /// The size of the Corn Dodgers
+        /// </summary>
+        public override Size Size { get; set; } = Size.Small;
+
         /// <summary>
         /// The calories of Corn Dodgers
         /// </summary>

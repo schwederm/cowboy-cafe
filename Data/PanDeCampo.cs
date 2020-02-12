@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Matt Schweder
  * Class Name: PanDeCampo.cs
- * Purpose: This class holds the calories and price of the Pan de Campo
+ * Purpose: This class holds the size, calories, and price of the Pan de Campo
 */
 
 using System;
@@ -12,6 +12,11 @@ namespace CowboyCafe.Data
 {
     public class PanDeCampo : Side
     {
+        /// <summary>
+        /// The size of the Pan de Campo
+        /// </summary>
+        public override Size Size { get; set; } = Size.Small;
+
         /// <summary>
         /// The calories of the Pan de Campo
         /// </summary>
