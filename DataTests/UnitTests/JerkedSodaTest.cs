@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using CowboyCafe.Data;
-/*
+
 namespace CowboyCafe.DataTests
 {
     public class JerkedSodaTest
@@ -11,7 +11,7 @@ namespace CowboyCafe.DataTests
         [Theory]
         [InlineData("CreamSoda")]
         [InlineData("OrangeSoda")]
-        [InlineData("Sarsparilla")]
+        [InlineData("Sarsaparilla")]
         [InlineData("BirchBeer")]
         [InlineData("RootBeer")]
         public void SodaFlavorEnumShouldContainFlavor(string name)
@@ -30,7 +30,7 @@ namespace CowboyCafe.DataTests
         [Theory]
         [InlineData("CreamSoda")]
         [InlineData("OrangeSoda")]
-        [InlineData("Sarsparilla")]
+        [InlineData("Sarsaparilla")]
         [InlineData("BirchBeer")]
         [InlineData("RootBeer")]
         public void ShouldBeAbleToSetFlavor(string name)
@@ -119,4 +119,3 @@ namespace CowboyCafe.DataTests
         }
     }
 }
-*/

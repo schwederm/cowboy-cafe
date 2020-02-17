@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Matt Schweder
+ * Class Name: JerkedSoda.cs
+ * Purpose: This class holds the price, calories, soda flavor, and the special ingredients for the Jerked Soda
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +12,9 @@ namespace CowboyCafe.Data
 {
     public class JerkedSoda : Drink
     {
+        /// <summary>
+        /// Gets the price for the Jerked Soda
+        /// </summary>
         public override double Price
         {
             get
@@ -24,6 +33,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Gets the calories for the Jerked Soda
+        /// </summary>
         public override uint Calories
         {
             get
@@ -32,7 +44,7 @@ namespace CowboyCafe.Data
                 {
                     case (Size.Small):
                         return 110;
-                    case(Size.Medium):
+                    case (Size.Medium):
                         return 146;
                     case (Size.Large):
                         return 198;
@@ -42,8 +54,14 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Gets the soda flavor for the Jerked Soda
+        /// </summary>
         public SodaFlavor Flavor { get; set; }
 
+        /// <summary>
+        /// Gets the special instructions for the Jerked Soda
+        /// </summary>
         public override List<string> SpecialInstructions
         {
 
@@ -51,7 +69,7 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
-                if (!ice) instructions.Add("Hold Ice");
+                if (!Ice) instructions.Add("Hold Ice");
 
                 return instructions;
             }
