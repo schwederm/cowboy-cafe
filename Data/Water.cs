@@ -57,7 +57,7 @@ namespace CowboyCafe.Data
 
         public override string ToString()
         {
-            return "Water";
+            return Size.ToString() + " Water";
         }
     }
 }

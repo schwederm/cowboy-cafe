@@ -77,7 +77,10 @@ namespace CowboyCafe.Data
 
         public override string ToString()
         {
-            return Size.ToString() + " " + SodaFlavor.ToString() + " Jerked Soda";
+            switch (Flavor) 
+            {
+                return Size.ToString() + " " + Flavor.ToString() + " Jerked Soda";
+            }
         }
     }
 }
