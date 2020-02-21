@@ -11,7 +11,7 @@ namespace CowboyCafe.DataTests
         [Theory]
         [InlineData("CreamSoda")]
         [InlineData("OrangeSoda")]
-        [InlineData("Sarsaparilla")]
+        [InlineData("Sarsparilla")]
         [InlineData("BirchBeer")]
         [InlineData("RootBeer")]
         public void SodaFlavorEnumShouldContainFlavor(string name)
@@ -30,7 +30,7 @@ namespace CowboyCafe.DataTests
         [Theory]
         [InlineData("CreamSoda")]
         [InlineData("OrangeSoda")]
-        [InlineData("Sarsaparilla")]
+        [InlineData("Sarsparilla")]
         [InlineData("BirchBeer")]
         [InlineData("RootBeer")]
         public void ShouldBeAbleToSetFlavor(string name)

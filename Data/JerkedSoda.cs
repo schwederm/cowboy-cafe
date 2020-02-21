@@ -79,6 +79,7 @@ namespace CowboyCafe.Data
         {
             switch (Flavor) 
             {
+                case 
                 return Size.ToString() + " " + Flavor.ToString() + " Jerked Soda";
             }
         }
