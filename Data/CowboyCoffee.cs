@@ -84,6 +84,10 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Returns the size and name of the Cowboy Coffee and if it's decaf or not
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             if (Decaf)

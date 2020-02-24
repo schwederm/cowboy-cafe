@@ -75,12 +75,24 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Returns the size, flavor and name of the Jerked Soda
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             switch (Flavor) 
             {
-                case 
-                return Size.ToString() + " " + Flavor.ToString() + " Jerked Soda";
+                case SodaFlavor.BirchBeer:
+                    return Size.ToString() + " Birch Beer Jerked Soda";
+                case SodaFlavor.CreamSoda:
+                    return Size.ToString() + " Cream Soda Jerked Soda";
+                case SodaFlavor.OrangeSoda:
+                    return Size.ToString() + " Orange Soda Jerked Soda";
+                case SodaFlavor.RootBeer:
+                    return Size.ToString() + " Root Beer Jerked Soda";
+                default:
+                    return Size.ToString() + " " + Flavor.ToString() + " Jerked Soda";
             }
         }
     }

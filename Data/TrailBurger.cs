@@ -78,6 +78,10 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Returns the name of the Trail Burger
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Trail Burger";

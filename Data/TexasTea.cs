@@ -90,12 +90,16 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Returns the name of the Texas Tea and if the tea is sweet or not
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             if (Sweet)
-                return Size.ToString() + " Sweet Texas Tea";
+                return Size.ToString() + " Texas Sweet Tea";
             else
-                return Size.ToString() + " Sweet Texas Tea"; 
+                return Size.ToString() + " Texas Plain Tea"; 
         }
     }
 }
