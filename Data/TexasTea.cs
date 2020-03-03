@@ -76,7 +76,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the special instructions for the Texas Tea
         /// </summary>
-        public override List<string> SpecialInstructions
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {

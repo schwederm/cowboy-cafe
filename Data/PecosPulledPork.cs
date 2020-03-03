@@ -47,7 +47,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Special instructions for the preparation of the Pecos Pulled Pork
         /// </summary>
-        public override List<string> SpecialInstructions
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {

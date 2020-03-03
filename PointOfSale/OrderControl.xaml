@@ -8,46 +8,20 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="Button">
-            <Setter Property="Height" Value="50px"/>
+            <Setter Property="Height" Value="35px"/>
             <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="10,0"/>
         </Style>
     </UserControl.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <TextBlock TextAlignment="Center" FontSize="20">Entree</TextBlock>
-            <Button Name="CowpokeChiliButton">Cowpoke Chili</Button>
-            <Button Name="RustlersRibsButton">Rustler's Ribs</Button>
-            <Button Name="PecosPulledPorkButton">Pecos Pulled Pork</Button>
-            <Button Name="TrailBurgerButton">Trail Burger</Button>
-            <Button Name="DakotaDoubleBurgerButton">Dakota Double Burger</Button>
-            <Button Name="TexasTripleBurgerButton">Texas Triple Burger</Button>
-            <Button Name ="AngryChickenButton">Angry Chicken</Button>
+    <StackPanel Orientation="Horizontal">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="ItemSelectionButton">Item Selection</Button>
+                <Button Name="CancelOrderButton">Cancel Order</Button>
+                <Button Name="CompleteOrderButton">Complete Order</Button>
+            </StackPanel>
+            <local:MenuItemSelectionControl/>
         </StackPanel>
-        <StackPanel Grid.Column ="1">
-            <TextBlock TextAlignment="Center" FontSize ="20">Side</TextBlock>
-            <Button Name="ChiliCheeseFriesButton">Chili Cheese Fries</Button>
-            <Button Name="CornDodgersButton">Corn Dodgers</Button>
-            <Button Name="PanDeCampoButton">Pan de Campo</Button>
-            <Button Name="BakedBeansButton">Baked Beans</Button>
-        </StackPanel>
-        <StackPanel Grid.Column="2">
-            <TextBlock TextAlignment="Center" FontSize="20">Drink</TextBlock>
-            <Button Name="JerkedSodaButton">Jerked Soda</Button>
-            <Button Name="TexasTeaButton">Texas Tea</Button>
-            <Button Name="CowboyCoffeeButton">Cowboy Coffee</Button>
-            <Button Name="WaterButton">Water</Button>
-        </StackPanel>
-        <StackPanel Grid.Column="3">
-            <TextBlock TextAlignment="Center" FontSize="20">Order</TextBlock>
-            <ListView Name="OrderList">
-
-            </ListView>
-        </StackPanel>
-    </Grid>
+        <local:OrderSummaryControl/>
+    </StackPanel>
 </UserControl>

@@ -1,17 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public class Order
+    public class Order : INotifyPropertyChanged
     {
-        public List<IOrderItem> Items => throw new NotImplementedException();
+        /// <summary>
+        /// Every time the Order class is instantiated the OrderNumber takes current value of lastOrderNumber and increments that value.
+        /// </summary>
+        public Order()
+        {
+            OrderNumber = lastOrderNumber++;
+        }
 
-        public double Subtotal => 0;
+        /// <summary>
+        /// Keeps track of the last order number.
+        /// </summary>
+        static uint lastOrderNumber = 1;
 
-        public void Add(IOrderItem item) { }
+        /// <summary>
+        /// Keeps track of the items the user has ordered.
+        /// </summary>
+        List<IOrderItem> items = new List<IOrderItem>();
+        public IEnumerable<IOrderItem> Items => items.ToArray();
+        
+        /// <summary>
+        /// Keeps track of the subtotal price of the items ordered.
+        /// </summary>
+        double subtotal = 0;
+        public double Subtotal => subtotal;
 
-        public void Remove(IOrderItem item) { }
+        /// <summary>
+        /// Keeps track of the current order number.
+        /// </summary>
+        public uint OrderNumber { get; }
+
+        /// <summary>
+        /// Keeps track if one of the class' properties has changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Adds item to the items list and updates the subtotal and notifies the event handler that both aforementioned properties have changed.
+        /// </summary>
+        /// <param name="item"></param>
+        public void Add(IOrderItem item) 
+        {
+            items.Add(item);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            subtotal += item.Price;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+        }
+
+        /// <summary>
+        /// Removes item from the items list and updates the subtotal and notifies the event handler that both aforementioned properties have changed.
+        /// </summary>
+        /// <param name="item"></param>
+        public void Remove(IOrderItem item) 
+        {
+            items.Remove(item);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            subtotal -= item.Price;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+        }
     }
 }

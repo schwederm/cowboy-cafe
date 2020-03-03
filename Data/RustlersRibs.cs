@@ -37,7 +37,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Special instructions for the preparation of the Rustlers Ribs
         /// </summary>
-        public override List<string> SpecialInstructions
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {

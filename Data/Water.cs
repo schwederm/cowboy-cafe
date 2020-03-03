@@ -42,7 +42,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the special instructions for the water
         /// </summary>
-        public override List<string> SpecialInstructions
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {

@@ -59,6 +59,16 @@ namespace CowboyCafe.Data
             }
         }
 
+        public override IEnumerable<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+
+                return instructions;
+            }
+        }
+
         /// <summary>
         /// Returns the size and name of the Corn Dodgers
         /// </summary>

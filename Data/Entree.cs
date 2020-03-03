@@ -10,7 +10,7 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    public abstract class Entree
+    public abstract class Entree : IOrderItem
     {
         /// <summary>
         /// Holds the overarching price double for all implented Entree classes
@@ -25,6 +25,6 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Holds the overarching special instructions list for all implented Entree classes
         /// </summary>
-        public abstract List<string> SpecialInstructions { get; } 
+        public abstract IEnumerable<string> SpecialInstructions { get; } 
     }
 }

@@ -14,6 +14,6 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The special instruction for the order item
         /// </summary>
-        List<string> SpecialInstructions { get; }
+        IEnumerable<string> SpecialInstructions { get; }
     }
 }

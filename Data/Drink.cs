@@ -10,7 +10,7 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    public abstract class Drink
+    public abstract class Drink : IOrderItem
     {
         /// <summary>
         /// Gets the size of the side
@@ -35,6 +35,6 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the special instructions list for the drink
         /// </summary>
-        public abstract List<string> SpecialInstructions { get; }
+        public abstract IEnumerable<string> SpecialInstructions { get; }
     }
 }
