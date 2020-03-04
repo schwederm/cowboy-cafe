@@ -13,15 +13,23 @@
             <Setter Property="Margin" Value="10,0"/>
         </Style>
     </UserControl.Resources>
-    <StackPanel Orientation="Horizontal">
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Name="ItemSelectionButton">Item Selection</Button>
-                <Button Name="CancelOrderButton">Cancel Order</Button>
-                <Button Name="CompleteOrderButton">Complete Order</Button>
-            </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border x:Name="Container" Grid.Column="0" Grid.Row="1">
             <local:MenuItemSelectionControl/>
+        </Border>
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+            <Button Name="ItemSelectionButton">Item Selection</Button>
+            <Button Name="CancelOrderButton">Cancel Order</Button>
+            <Button Name="CompleteOrderButton">Complete Order</Button>
         </StackPanel>
-        <local:OrderSummaryControl/>
-    </StackPanel>
+        <local:OrderSummaryControl Grid.Column="1" Grid.Row="1"/>
+    </Grid>
 </UserControl>
