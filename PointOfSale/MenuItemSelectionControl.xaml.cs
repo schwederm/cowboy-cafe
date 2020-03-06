@@ -23,7 +23,6 @@ namespace PointOfSale
         public MenuItemSelectionControl()
         {
             InitializeComponent();
-            //AngryChickenButton.Click += OnAngryChickenButtonClicked;
         }
 
         void OnItemAddButtonClicked(object sender, RoutedEventArgs e)
@@ -56,11 +55,9 @@ namespace PointOfSale
                             //orderControl.SwapScreen(new something());
                             break;
                         case "CowpokeChili":
-                            var entree = new CowpokeChili();
+                            var item = new CowpokeChili();
                             var screen = new CustomizeCowpokeChili();
-                            screen.DataContext = entree;
-                            data.Add(entree);
-                            orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            AddItemAndOpenCustomizationScreen(item, screen);
                             break;
                         case "DakotaDoubleBurger":
                             data.Add(new DakotaDoubleBurger());
@@ -103,12 +100,21 @@ namespace PointOfSale
             }
         }
 
-        void OnAngryChickenButtonClicked(object sender, RoutedEventArgs e)
+        void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
         {
-            if (DataContext is Order data)
+            var order = DataContext as Order;
+            if (order == null) throw new Exception("DataContext expected be an Order instead of null");
+
+            if (screen != null)
             {
-                data.Add( new AngryChicken());
+                var orderControl = this.FindAncestor<OrderControl>();
+                if (orderControl == null) throw new Exception("An ancestor of OrderControl expected be an OrderControl instead of null");
+
+                screen.DataContext = item;
+                orderControl.SwapScreen(screen);
             }
+
+            order.Add(item);
         }
     }
 }

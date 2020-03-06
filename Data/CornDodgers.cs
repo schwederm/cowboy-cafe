@@ -11,12 +11,7 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     public class CornDodgers : Side
-    {
-        /// <summary>
-        /// The size of the Corn Dodgers
-        /// </summary>
-        public override Size Size { get; set; } = Size.Small;
-
+    {   
         /// <summary>
         /// The calories of Corn Dodgers
         /// </summary>

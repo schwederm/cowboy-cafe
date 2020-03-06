@@ -13,11 +13,6 @@ namespace CowboyCafe.Data
     public class PanDeCampo : Side
     {
         /// <summary>
-        /// The size of the Pan de Campo
-        /// </summary>
-        public override Size Size { get; set; } = Size.Small;
-
-        /// <summary>
         /// The calories of the Pan de Campo
         /// </summary>
         public override uint Calories

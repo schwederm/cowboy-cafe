@@ -7,10 +7,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public abstract class Entree : IOrderItem
+    public abstract class Entree : IOrderItem , INotifyPropertyChanged
     {
         /// <summary>
         /// Holds the overarching price double for all implented Entree classes
@@ -25,6 +26,14 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Holds the overarching special instructions list for all implented Entree classes
         /// </summary>
-        public abstract IEnumerable<string> SpecialInstructions { get; } 
+        public abstract IEnumerable<string> SpecialInstructions { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+        }
     }
 }

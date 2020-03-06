@@ -16,12 +16,30 @@ namespace CowboyCafe.Data
         /// <summary>
         /// If the Angry Chicken comes with bread
         /// </summary>
-        public bool Bread { get; set; } = true;
+        private bool bread = true;
+        public bool Bread
+        {
+            get { return bread; }
+            set
+            {
+                bread = value;
+                NotifyPropertyChanged("Bread");
+            }
+        }
 
         /// <summary>
         /// If the Angry Chicken comes with a pickle
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        private bool pickle = true;
+        public bool Pickle
+        {
+            get { return pickle; }
+            set
+            {
+                pickle = value;
+                NotifyPropertyChanged("Pickle");
+            }
+        }
 
         /// <summary>
         /// The price of the Angry Chicken

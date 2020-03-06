@@ -13,11 +13,6 @@ namespace CowboyCafe.Data
     public class ChiliCheeseFries : Side
     {
         /// <summary>
-        /// The size of the Chilli Cheese Fries
-        /// </summary>
-        public override Size Size { get; set; } = Size.Small;
-
-        /// <summary>
         /// The calories of the Chilli Cheese Fries
         /// </summary>
         public override uint Calories

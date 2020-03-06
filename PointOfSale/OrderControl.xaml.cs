@@ -22,8 +22,11 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
-            CancelOrderButton.Click += OnCancelOrderButtonClicked;
-            CompleteOrderButton.Click += OnCompleteOrderButtonClicked;
+        }
+
+        public void OnItemSelectionButtonClicked(object sender, RoutedEventArgs e)
+        {
+            Container.Child = new MenuItemSelectionControl();
         }
 
         public void SwapScreen(UIElement element)

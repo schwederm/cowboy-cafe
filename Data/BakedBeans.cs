@@ -13,11 +13,6 @@ namespace CowboyCafe.Data
     public class BakedBeans : Side
     {
         /// <summary>
-        /// The size of the Baked Beans
-        /// </summary>
-        public override Size Size { get; set; } = Size.Small;
-
-        /// <summary>
         /// The calories of the Baked Beans
         /// </summary>
         public override uint Calories
