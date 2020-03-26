@@ -79,7 +79,7 @@ namespace CowboyCafe.Data
         /// </summary>
         /// <param name="sender">CheckBox or RadioButton clicks</param>
         /// <param name="e">The event arguments</param>
-        public void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             if (e.PropertyName == "Price")
