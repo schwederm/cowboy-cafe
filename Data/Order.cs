@@ -74,11 +74,21 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
-        private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
+        /// <summary>
+        /// Listens to the changed properties of any IOrderItem and if neccessary updates the subtotal price
+        /// </summary>
+        /// <param name="sender">CheckBox or RadioButton clicks</param>
+        /// <param name="e">The event arguments</param>
+        public void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             if (e.PropertyName == "Price")
             {
+                subtotal = 0;
+                foreach(IOrderItem item in items)
+                {
+                    subtotal += item.Price;
+                }
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             }
         }

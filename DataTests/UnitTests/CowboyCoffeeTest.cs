@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using CowboyCafe.Data;
+using System.Linq;
 
 namespace CowboyCafe.DataTests
 {
@@ -121,7 +122,7 @@ namespace CowboyCafe.DataTests
             if (roomForCream) Assert.Contains("Room for Cream", coffee.SpecialInstructions);
             if (!ice && !roomForCream) Assert.Empty(coffee.SpecialInstructions);
             if (ice && !roomForCream || !ice && roomForCream) Assert.Single(coffee.SpecialInstructions);
-            if (ice && roomForCream) Assert.Equal(2, coffee.SpecialInstructions.Count);
+            if (ice && roomForCream) Assert.Equal(2, coffee.SpecialInstructions.ToList().Count);
         }
     }
 }

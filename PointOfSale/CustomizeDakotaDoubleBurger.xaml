@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="PointOfSale.CustomizeDakotaDoubleBurger"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="4" FontSize="30" Text="Dakota Double Burger"/>
+        <CheckBox Grid.Row="1" Grid.Column="0" FontSize="20" IsChecked="{Binding Path=Bun}" Content="Bun"/>
+        <CheckBox Grid.Row="1" Grid.Column="1" FontSize="20" IsChecked="{Binding Path=Cheese}" Content="Cheese"/>
+        <CheckBox Grid.Row="1" Grid.Column="2" FontSize="20" IsChecked="{Binding Path=Ketchup}" Content="Ketchup"/>
+        <CheckBox Grid.Row="1" Grid.Column="3" FontSize="20" IsChecked="{Binding Path=Lettuce}" Content="Lettuce"/>
+        <CheckBox Grid.Row="2" Grid.Column="0" FontSize="20" IsChecked="{Binding Path=Mayo}" Content="Mayo"/>
+        <CheckBox Grid.Row="2" Grid.Column="1" FontSize="20" IsChecked="{Binding Path=Mustard}" Content="Mustard"/>
+        <CheckBox Grid.Row="2" Grid.Column="2" FontSize="20" IsChecked="{Binding Path=Pickle}" Content="Pickle"/>
+        <CheckBox Grid.Row="2" Grid.Column="3" FontSize="20" IsChecked="{Binding Path=Tomato}" Content="Tomato"/>
+    </Grid>
+</UserControl>

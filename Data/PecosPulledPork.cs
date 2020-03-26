@@ -15,12 +15,30 @@ namespace CowboyCafe.Data
         /// <summary>
         /// If the Pecos Pulled Pork comes with bread
         /// </summary>
-        public bool Bread { get; set; } = true;
+        private bool bread = true;
+        public bool Bread
+        {
+            get { return bread; }
+            set
+            {
+                bread = value;
+                NotifyPropertyChanged("Bread");
+            }
+        }
 
         /// <summary>
         /// If the Pecos Pulled Pork comes with a pickle
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        private bool pickle = true;
+        public bool Pickle
+        {
+            get { return pickle; }
+            set
+            {
+                pickle = value;
+                NotifyPropertyChanged("Pickle");
+            }
+        }
 
         /// <summary>
         /// The price of the Pecos Pulled Pork
@@ -66,7 +84,7 @@ namespace CowboyCafe.Data
         /// <returns></returns>
         public override string ToString()
         {
-            return "Pecos Pulled Pork";
+            return "Peco's Pulled Pork";
         }
     }
 }

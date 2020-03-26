@@ -28,8 +28,15 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract IEnumerable<string> SpecialInstructions { get; }
 
+        /// <summary>
+        /// Handles a PropertyChanged event and notifies the Order class that a property has changed
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Listens to changed property events and invokes the appropriate PropertyChanged event
+        /// </summary>
+        /// <param name="propertyName">Name of the changed property</param>
         protected void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

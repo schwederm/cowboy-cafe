@@ -54,6 +54,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Special instructions for Pan de Campo
+        /// </summary>
         public override IEnumerable<string> SpecialInstructions
         {
             get

@@ -15,27 +15,72 @@ namespace CowboyCafe.Data
         /// <summary>
         /// If the Trail Burger comes with buns
         /// </summary>
-        public bool Bun { get; set; } = true;
+        private bool bun = true;
+        public bool Bun
+        {
+            get { return bun; }
+            set
+            {
+                bun = value;
+                NotifyPropertyChanged("Bun");
+            }
+        }
 
         /// <summary>
         /// If the Trail Burger comes with ketchup
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        private bool ketchup = true;
+        public bool Ketchup
+        {
+            get { return ketchup; }
+            set
+            {
+                ketchup = value;
+                NotifyPropertyChanged("Ketchup");
+            }
+        }
 
         /// <summary>
         /// If the Trail Burger comes with mustard
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        private bool mustard = true;
+        public bool Mustard
+        {
+            get { return mustard; }
+            set
+            {
+                mustard = value;
+                NotifyPropertyChanged("Mustard");
+            }
+        }
 
         /// <summary>
         /// If the Trail Burger comes with pickle
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        private bool pickle = true;
+        public bool Pickle
+        {
+            get { return pickle; }
+            set
+            {
+                pickle = value;
+                NotifyPropertyChanged("Pickle");
+            }
+        }
 
         /// <summary>
         /// If the Trial Burger comes with cheese
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        private bool cheese = true;
+        public bool Cheese
+        {
+            get { return cheese; }
+            set
+            {
+                cheese = value;
+                NotifyPropertyChanged("Cheese");
+            }
+        }
 
         /// <summary>
         /// The price of the Trail Burger

@@ -17,10 +17,8 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Side : IOrderItem , INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        
         /// <summary>
-        /// Gets the size of the side
+        /// Gets the size of the side. Invokes the PropertyChanged event handler for the Size, Price, and Calories properties
         /// </summary>
         private Size size = Size.Small;
         public Size Size
@@ -45,6 +43,24 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract uint Calories { get; }
 
+        /// <summary>
+        /// Special instructions for the side
+        /// </summary>
         public abstract IEnumerable<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Handles a PropertyChanged event and notifies the Order class that a property has changed
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Listens to changed property events and invokes the appropriate PropertyChanged event
+        /// </summary>
+        /// <param name="propertyName">Name of the changed property</param>
+        protected void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+        }
     }
 }

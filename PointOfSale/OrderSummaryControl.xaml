@@ -21,6 +21,8 @@
                 <TextBlock Text="Order "/>
                 <TextBlock Text="{Binding Path=OrderNumber}"/>
         </StackPanel>
+        <!--ListView has two inner columns to seperate the item and the item's price-->
+        <!--There is also another ListView for each item in case the item has special instructions-->
         <ListView Grid.Row="1" Height="290" ItemsSource="{Binding Path=Items}">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -30,7 +32,7 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Text="{Binding}"/>
-                        <TextBlock Grid.Row="0" Margin="175,0,0,0" Text="{Binding Path=Price,StringFormat=c}"/>
+                        <TextBlock Grid.Row="0" Margin="200,0,0,0" Text="{Binding Path=Price,StringFormat=c}"/>
                         <ListBox Grid.Row="1" ItemsSource="{Binding Path=SpecialInstructions}"/>
                     </Grid>
                 </DataTemplate>

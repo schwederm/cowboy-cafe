@@ -7,15 +7,27 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public abstract class Drink : IOrderItem
+    public abstract class Drink : IOrderItem , INotifyPropertyChanged
     {
         /// <summary>
-        /// Gets the size of the side
+        /// Gets the size of the side. Invokes the PropertyChanged event handler for the Size, Price, and Calories properties
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        private Size size = Size.Small;
+        public Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
 
         /// <summary>
         /// Gets the price of the side
@@ -30,11 +42,35 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets whether the drink has ice
         /// </summary>
-        public virtual bool Ice { get; set; } = true;
+        private bool ice = true;
+        public virtual bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                NotifyPropertyChanged("Ice");
+            }
+        }
 
         /// <summary>
         /// Gets the special instructions list for the drink
         /// </summary>
         public abstract IEnumerable<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Handles a PropertyChanged event and notifies the Order class that a property has changed
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Listens to changed property events and invokes the appropriate PropertyChanged event
+        /// </summary>
+        /// <param name="propertyName">Name of the changed property</param>
+        protected void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+        }
     }
 }

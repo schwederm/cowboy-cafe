@@ -54,6 +54,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Special instruction for the Chili Cheese Fries
+        /// </summary>
         public override IEnumerable<string> SpecialInstructions
         {
             get

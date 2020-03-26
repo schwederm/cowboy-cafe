@@ -25,81 +25,71 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles all the button clicks and based on the tag passes the appropriate item instance and customize screen instance into the AddItemAndOpenCustomizatoinScreen method
+        /// </summary>
+        /// <param name="sender">The button clicked</param>
+        /// <param name="e">The event arguments</param>
         void OnItemAddButtonClicked(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-            if (DataContext is Order data)
+            if (sender is Button button)
             {
-                if (sender is Button button)
+                switch (button.Tag)
                 {
-                    switch (button.Tag)
-                    {
-                        case "AngryChicken":
-                            data.Add(new AngryChicken());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "BakedBeans":
-                            data.Add(new BakedBeans());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "ChiliCheeseFries":
-                            data.Add(new ChiliCheeseFries());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "CornDodgers":
-                            data.Add(new CornDodgers());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "CowboyCoffee":
-                            data.Add(new CowboyCoffee());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "CowpokeChili":
-                            var item = new CowpokeChili();
-                            var screen = new CustomizeCowpokeChili();
-                            AddItemAndOpenCustomizationScreen(item, screen);
-                            break;
-                        case "DakotaDoubleBurger":
-                            data.Add(new DakotaDoubleBurger());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "JerkedSoda":
-                            data.Add(new JerkedSoda());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "PanDeCampo":
-                            data.Add(new PanDeCampo());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "PecosPulledPork":
-                            data.Add(new PecosPulledPork());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "RustlersRibs":
-                            data.Add(new RustlersRibs());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "TexasTea":
-                            data.Add(new TexasTea());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "TexasTripleBurger":
-                            data.Add(new TexasTripleBurger());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "TrailBurger":
-                            data.Add(new TrailBurger());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                        case "Water":
-                            data.Add(new Water());
-                            //orderControl.SwapScreen(new something());
-                            break;
-                    }
+                    case "AngryChicken":
+                        AddItemAndOpenCustomizationScreen(new AngryChicken(), new CustomizeAngryChicken());
+                        break;
+                    case "BakedBeans":
+                        AddItemAndOpenCustomizationScreen(new BakedBeans(), new CustomizeSide("Baked Beans"));
+                        break;
+                    case "ChiliCheeseFries":
+                        AddItemAndOpenCustomizationScreen(new ChiliCheeseFries(), new CustomizeSide("Chili Cheese Fries"));
+                        break;
+                    case "CornDodgers":
+                        AddItemAndOpenCustomizationScreen(new CornDodgers(), new CustomizeSide("Corn Dodgers"));
+                        break;
+                    case "CowboyCoffee":
+                        AddItemAndOpenCustomizationScreen(new CowboyCoffee(), new CustomizeCowboyCoffee());
+                        break;
+                    case "CowpokeChili":
+                        AddItemAndOpenCustomizationScreen(new CowpokeChili(), new CustomizeCowpokeChili());
+                        break;
+                    case "DakotaDoubleBurger":
+                        AddItemAndOpenCustomizationScreen(new DakotaDoubleBurger(), new CustomizeDakotaDoubleBurger());
+                        break;
+                    case "JerkedSoda":
+                        AddItemAndOpenCustomizationScreen(new JerkedSoda(), new CustomizeJerkedSoda());
+                        break;
+                    case "PanDeCampo":
+                        AddItemAndOpenCustomizationScreen(new PanDeCampo(), new CustomizeSide("Pan de Campo"));
+                        break;
+                    case "PecosPulledPork":
+                    AddItemAndOpenCustomizationScreen(new PecosPulledPork(), new CustomizePecosPulledPork());
+                        break;
+                    case "RustlersRibs":
+                        AddItemAndOpenCustomizationScreen(new RustlersRibs(), null);
+                        break;
+                    case "TexasTea":
+                        AddItemAndOpenCustomizationScreen(new TexasTea(), new CustomizeTexasTea());
+                        break;
+                    case "TexasTripleBurger":
+                        AddItemAndOpenCustomizationScreen(new TexasTripleBurger(), new CustomizeTexasTripleBurger());
+                        break;
+                    case "TrailBurger":
+                        AddItemAndOpenCustomizationScreen(new TrailBurger(), new CustomizeTrailBurger());
+                        break;
+                    case "Water":
+                        AddItemAndOpenCustomizationScreen(new Water(), new CustomizeWater());
+                        break;
                 }
             }
         }
 
+        /// <summary>
+        /// If the order instance isn't null the item is added to the order and if the screen isn't null the Order Control swaps screens with the instance of the passed in screen.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="screen"></param>
         void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
         {
             var order = DataContext as Order;

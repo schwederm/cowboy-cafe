@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using CowboyCafe.Data;
+using System.Linq;
 
 namespace CowboyCafe.DataTests
 {
@@ -103,7 +104,7 @@ namespace CowboyCafe.DataTests
             if (lemon) Assert.Contains("Add Lemon", water.SpecialInstructions);
             if (ice && !lemon) Assert.Empty(water.SpecialInstructions);
             if (ice && lemon || !ice && !lemon) Assert.Single(water.SpecialInstructions);
-            if (!ice && lemon) Assert.Equal(2, water.SpecialInstructions.Count);
+            if (!ice && lemon) Assert.Equal(2, water.SpecialInstructions.ToList().Count);
         }
     }
 }

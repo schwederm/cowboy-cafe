@@ -66,12 +66,31 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets if the tea is sweet
         /// </summary>
-        public bool Sweet { get; set; } = true;
+        private bool sweet = true;
+        public bool Sweet
+        {
+            get { return sweet; }
+            set
+            {
+                sweet = value;
+                NotifyPropertyChanged("Sweet");
+                NotifyPropertyChanged("Calories");
+            }
+        }
 
         /// <summary>
         /// Gets if the tea has lemon
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        private bool lemon = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set
+            {
+                lemon = value;
+                NotifyPropertyChanged("Lemon");
+            }
+        }
 
         /// <summary>
         /// Gets the special instructions for the Texas Tea

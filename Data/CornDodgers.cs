@@ -54,6 +54,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Special instructions for the Corn Dodgers
+        /// </summary>
         public override IEnumerable<string> SpecialInstructions
         {
             get

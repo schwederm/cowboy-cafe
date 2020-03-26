@@ -54,6 +54,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Special instructions for the Baked Beans
+        /// </summary>
         public override IEnumerable<string> SpecialInstructions
         {
             get

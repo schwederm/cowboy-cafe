@@ -57,7 +57,16 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the soda flavor for the Jerked Soda
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        private SodaFlavor flavor = SodaFlavor.CreamSoda;
+        public SodaFlavor Flavor
+        {
+            get { return flavor; }
+            set
+            {
+                flavor = value;
+                NotifyPropertyChanged("Flavor");
+            }
+        }
 
         /// <summary>
         /// Gets the special instructions for the Jerked Soda

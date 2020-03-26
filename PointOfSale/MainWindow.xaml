@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <!--Order Control instance is placed inside the Main Window-->
         <local:OrderControl></local:OrderControl>
     </Grid>
 </Window>

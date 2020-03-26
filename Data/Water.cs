@@ -37,7 +37,16 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets if the water has a lemon
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        private bool lemon = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set
+            {
+                lemon = value;
+                NotifyPropertyChanged("Lemon");
+            }
+        }
 
         /// <summary>
         /// Gets the special instructions for the water
