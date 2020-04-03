@@ -84,7 +84,7 @@ namespace CowboyCafe.Data
         /// <returns></returns>
         public override string ToString()
         {
-            return "Peco's Pulled Pork";
+            return "Pecos Pulled Pork";
         }
     }
 }

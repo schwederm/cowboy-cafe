@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -59,5 +60,53 @@ namespace CowboyCafe.DataTests
             Assert.Contains("hold pickle", pulledPork.SpecialInstructions);
             Assert.Contains("hold bread", pulledPork.SpecialInstructions);
         }
+
+        [Fact]
+        public void PecosPulledPorkImplementsINotifyPropertyChanged()
+        {
+            var pulledPork = new PecosPulledPork();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(pulledPork);
+        }
+
+        [Fact]
+        public void ChangingBreadPropertyShouldInvokePropertyChangedForBread()
+        {
+            var pulledPork = new PecosPulledPork();
+            Assert.PropertyChanged(pulledPork, "Bread", () =>
+            {
+                pulledPork.Bread = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingBreadPropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var pulledPork = new PecosPulledPork();
+            Assert.PropertyChanged(pulledPork, "SpecialInstructions", () =>
+            {
+                pulledPork.Bread = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPicklePropertyShouldInvokePropertyChangedForPickle()
+        {
+            var pulledPork = new PecosPulledPork();
+            Assert.PropertyChanged(pulledPork, "Pickle", () =>
+            {
+                pulledPork.Pickle = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPicklePropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var pulledPork = new PecosPulledPork();
+            Assert.PropertyChanged(pulledPork, "SpecialInstructions", () =>
+            {
+                pulledPork.Pickle = false;
+            });
+        }
     }
+
 }

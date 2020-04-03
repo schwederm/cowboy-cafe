@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -103,6 +104,113 @@ namespace CowboyCafe.DataTests
             Assert.Contains("hold bun", burger.SpecialInstructions);
             Assert.Contains("hold cheese", burger.SpecialInstructions);
             Assert.Contains("hold pickle", burger.SpecialInstructions);
+        }
+
+        [Fact]
+        public void TexasTripleBurgerImplementsINotifyPropertyChanged()
+        {
+            var burger = new TrailBurger();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(burger);
+        }
+
+        [Fact]
+        public void ChangingBunPropertyShouldInvokePropertyChangedForBun()
+        {
+            var burger = new TrailBurger();
+            Assert.PropertyChanged(burger, "Bun", () =>
+            {
+                burger.Bun = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingBunPropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var burger = new TrailBurger();
+            Assert.PropertyChanged(burger, "SpecialInstructions", () =>
+            {
+                burger.Bun = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingKetchupPropertyShouldInvokePropertyChangedForKetchup()
+        {
+            var burger = new TrailBurger();
+            Assert.PropertyChanged(burger, "Ketchup", () =>
+            {
+                burger.Ketchup = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingKetchupPropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var burger = new TrailBurger();
+            Assert.PropertyChanged(burger, "SpecialInstructions", () =>
+            {
+                burger.Ketchup = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingMustardPropertyShouldInvokePropertyChangedForMustard()
+        {
+            var burger = new TrailBurger();
+            Assert.PropertyChanged(burger, "Mustard", () =>
+            {
+                burger.Mustard = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingMustardPropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var burger = new TrailBurger();
+            Assert.PropertyChanged(burger, "SpecialInstructions", () =>
+            {
+                burger.Mustard = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPicklePropertyShouldInvokePropertyChangedForPickle()
+        {
+            var burger = new TrailBurger();
+            Assert.PropertyChanged(burger, "Pickle", () =>
+            {
+                burger.Pickle = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPicklePropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var burger = new TrailBurger();
+            Assert.PropertyChanged(burger, "SpecialInstructions", () =>
+            {
+                burger.Pickle = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingCheesePropertyShouldInvokePropertyChangedForCheese()
+        {
+            var burger = new TrailBurger();
+            Assert.PropertyChanged(burger, "Cheese", () =>
+            {
+                burger.Cheese = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingCheesePropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var burger = new TrailBurger();
+            Assert.PropertyChanged(burger, "SpecialInstructions", () =>
+            {
+                burger.Cheese = false;
+            });
         }
     }
 }

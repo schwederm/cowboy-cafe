@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -51,6 +52,43 @@ namespace CowboyCafe.DataTests
             fries.Size = Size.Medium;
             fries.Size = size;
             Assert.Equal<uint>(calories, fries.Calories);
+        }
+
+        [Fact]
+        public void ChiliCheeseFriesImplementsINotifyPropertyChanged()
+        {
+            var fries = new ChiliCheeseFries();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(fries);
+        }
+
+        [Fact]
+        public void ChangingSizePropertyShouldInvokePropertyChangedForSize()
+        {
+            var fries = new ChiliCheeseFries();
+            Assert.PropertyChanged(fries, "Size", () =>
+            {
+                fries.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizePropertyShouldInvokePropertyChangedForCalories()
+        {
+            var fries = new ChiliCheeseFries();
+            Assert.PropertyChanged(fries, "Calories", () =>
+            {
+                fries.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizePropertyShouldInvokePropertyChangedForPrice()
+        {
+            var fries = new ChiliCheeseFries();
+            Assert.PropertyChanged(fries, "Price", () =>
+            {
+                fries.Size = Size.Medium;
+            });
         }
     }
 }

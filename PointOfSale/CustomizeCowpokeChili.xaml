@@ -6,19 +6,23 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="3"  FontSize="30" Text="Cowpoke Chili"/>
-        <CheckBox Grid.Row="1" Grid.Column="0" FontSize="20" IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
-        <CheckBox Grid.Row="1" Grid.Column="1" FontSize="20" IsChecked="{Binding Path=GreenOnions}">Green Onions</CheckBox>
-        <CheckBox Grid.Row="1" Grid.Column="2"  FontSize="20" IsChecked="{Binding Path=SourCream}">Sour Cream</CheckBox>
+        <TextBlock Grid.Row="0" FontSize="30" Text="Cowpoke Chili"/>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Ingredients" FontSize="28"/>
+            <CheckBox IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
+            <CheckBox IsChecked="{Binding Path=GreenOnions}">Green Onions</CheckBox>
+            <CheckBox IsChecked="{Binding Path=SourCream}">Sour Cream</CheckBox>
+            <CheckBox IsChecked="{Binding Path=TortillaStrips}">Tortilla Strips</CheckBox>
+        </StackPanel>
     </Grid>
 </UserControl>

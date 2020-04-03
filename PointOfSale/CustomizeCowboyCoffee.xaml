@@ -6,26 +6,36 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="215"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="4" FontSize="30" Text="Cowboy Coffee"/>
-        <!--User can select the size of the Cowboy Coffee by choosing one of the three radio buttons-->
-        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
-            <RadioButton Name="SmallRadioButton" Click="RadioButtonClick" Content="Small" Width="100"/>
-            <RadioButton Name="MediumRadioButton" Click="RadioButtonClick" Content="Medium" Width="100"/>
-            <RadioButton Name="LargeRadioButton" Click="RadioButtonClick" Content="Large" Width="100"/>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontSize="30" Text="Cowboy Coffee"/>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left">
+            <TextBlock Text="Ingredients" FontSize="28"/>
+            <CheckBox IsChecked="{Binding Path=Decaf}" Content="Decaf"/>
+            <CheckBox IsChecked="{Binding Path=Ice}" Content="Ice"/>
+            <CheckBox IsChecked="{Binding Path=RoomForCream}" Content="Room for Cream"/>
         </StackPanel>
-        <CheckBox Grid.Row="1" Grid.Column="1" IsChecked="{Binding Path=Decaf}" Content="Decaf"/>
-        <CheckBox Grid.Row="1" Grid.Column="2" IsChecked="{Binding Path=Ice}" Content="Ice"/>
-        <CheckBox Grid.Row="1" Grid.Column="3" IsChecked="{Binding Path=RoomForCream}" Content="Room for Cream"/>
+        <!--User can select the size of the Cowboy Coffee by choosing one of the three radio buttons-->
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
+            <TextBlock Text="Size" FontSize="28"/>
+            <RadioButton Name="SmallRadioButton" Click="RadioButtonClick" Content="Small"/>
+            <RadioButton Name="MediumRadioButton" Click="RadioButtonClick" Content="Medium"/>
+            <RadioButton Name="LargeRadioButton" Click="RadioButtonClick" Content="Large"/>
+        </StackPanel>
     </Grid>
 </UserControl>

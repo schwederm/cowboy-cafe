@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -58,6 +59,53 @@ namespace CowboyCafe.DataTests
             chicken.Pickle = false;
             Assert.Contains("hold pickle", chicken.SpecialInstructions);
             Assert.Contains("hold bread", chicken.SpecialInstructions);
+        }
+
+        [Fact]
+        public void AngryChickenImplementsINotifyPropertyChanged()
+        {
+            var chicken = new AngryChicken();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(chicken);
+        }
+
+        [Fact]
+        public void ChangingBreadPropertyShouldInvokePropertyChangedForBread()
+        {
+            var chicken = new AngryChicken();
+            Assert.PropertyChanged(chicken, "Bread", ()=> 
+            { 
+                chicken.Bread = false; 
+            });
+        }
+
+        [Fact]
+        public void ChangingBreadPropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var chicken = new AngryChicken();
+            Assert.PropertyChanged(chicken, "SpecialInstructions", () =>
+            {
+                chicken.Bread = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPicklePropertyShouldInvokePropertyChangedForPickle()
+        {
+            var chicken = new AngryChicken();
+            Assert.PropertyChanged(chicken, "Pickle", ()=> 
+            { 
+                chicken.Pickle = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPicklePropertyShouldInvokePropertyChangedForSpecialnstructions()
+        {
+            var chicken = new AngryChicken();
+            Assert.PropertyChanged(chicken, "SpecialInstructions", () =>
+            {
+                chicken.Pickle = false;
+            });
         }
     }
 }

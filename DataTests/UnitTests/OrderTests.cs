@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -76,6 +77,57 @@ namespace CowboyCafe.DataTests
             {
                 Assert.Contains(item, order.Items);
             }
+        }
+
+        [Fact]
+        public void OrderImplementsINotifyPropertyChanged()
+        {
+            var order = new Order();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(order);
+        }
+
+        [Fact]
+        public void AddingItemShouldInvokePropertyChangedForItemsProperty()
+        {
+            var order = new Order();
+            IOrderItem item = new AngryChicken();
+            Assert.PropertyChanged(order, "Items", () =>
+            {
+                order.Add(item);
+            });
+        }
+
+        [Fact]
+        public void AddingItemShouldInvokePropertyChangedForSubtotalProperty()
+        {
+            var order = new Order();
+            IOrderItem item = new AngryChicken();
+            Assert.PropertyChanged(order, "Subtotal", () =>
+            {
+                order.Add(item);
+            });
+        }
+
+        [Fact]
+        public void RemovingItemShouldInvokePropertyChangedForItemsProperty()
+        {
+            var order = new Order();
+            IOrderItem item = new AngryChicken();
+            Assert.PropertyChanged(order, "Items", () =>
+            {
+                order.Remove(item);
+            });
+        }
+
+        [Fact]
+        public void RemovingItemShouldInvokePropertyChangedForSubtotalProperty()
+        {
+            var order = new Order();
+            IOrderItem item = new AngryChicken();
+            Assert.PropertyChanged(order, "Subtotal", () =>
+            {
+                order.Remove(item);
+            });
         }
     }
 }

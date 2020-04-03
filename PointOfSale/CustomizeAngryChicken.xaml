@@ -6,17 +6,21 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontSize="30" Text="Angry Chicken"/>
-        <CheckBox Grid.Row="1" Grid.Column="0" FontSize="20" IsChecked="{Binding Path=Bread}" Content="Bread"/>
-        <CheckBox Grid.Row="1" Grid.Column="1" FontSize="20" IsChecked="{Binding Path=Pickle}" Content="Pickle"/>
+        <TextBlock Grid.Row="0" FontSize="30" Text="Angry Chicken"/>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Ingredients" FontSize="28"/>
+            <CheckBox IsChecked="{Binding Path=Bread}" Content="Bread"/>
+            <CheckBox IsChecked="{Binding Path=Pickle}" Content="Pickle"/>
+        </StackPanel>
     </Grid>
 </UserControl>
