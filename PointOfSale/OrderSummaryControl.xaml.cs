@@ -36,73 +36,76 @@ namespace PointOfSale
             {
                 var orderArr = list.ItemsSource as IOrderItem[];
                 int orderItemNum = list.SelectedIndex;
-                string orderItem = orderArr[orderItemNum].ToString();
-                string[] item = orderItem.Split(" ");
-                if (item[0] == "Small" || item[0] == "Medium" || item[0] == "Large")
+                if (orderItemNum != -1)
                 {
-                    if (item[item.Length - 1] == "Soda")
-                        orderItem = item[item.Length - 2] + " " + item[item.Length - 1];
-                    else if (item[item.Length - 1] == "Tea")
-                        orderItem = item[item.Length - 3] + " " + item[item.Length - 1];
-                    else if (item[item.Length - 1] == "Coffee")
-                        orderItem = item[item.Length - 2] + " " + item[item.Length - 1];
-                    else
+                    string orderItem = orderArr[orderItemNum].ToString();
+                    string[] item = orderItem.Split(" ");
+                    if (item[0] == "Small" || item[0] == "Medium" || item[0] == "Large")
                     {
-                        orderItem = "";
-                        for (int i = 1; i < item.Length; i++)
+                        if (item[item.Length - 1] == "Soda")
+                            orderItem = item[item.Length - 2] + " " + item[item.Length - 1];
+                        else if (item[item.Length - 1] == "Tea")
+                            orderItem = item[item.Length - 3] + " " + item[item.Length - 1];
+                        else if (item[item.Length - 1] == "Coffee")
+                            orderItem = item[item.Length - 2] + " " + item[item.Length - 1];
+                        else
                         {
-                            orderItem = orderItem + item[i] + " ";
+                            orderItem = "";
+                            for (int i = 1; i < item.Length; i++)
+                            {
+                                orderItem = orderItem + item[i] + " ";
+                            }
+                            orderItem = orderItem.Substring(0, orderItem.Length - 1);
                         }
-                        orderItem = orderItem.Substring(0, orderItem.Length - 1);
                     }
-                }
-                switch (orderItem)
-                {
-                    case "Angry Chicken":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeAngryChicken());
-                        break;
-                    case "Baked Beans":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeSide("Baked Beans"));
-                        break;
-                    case "Chili Cheese Fries":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeSide("Chili Cheese Fries"));
-                        break;
-                    case "Corn Dodgers":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeSide("Corn Dodgers"));
-                        break;
-                    case "Cowboy Coffee":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeCowboyCoffee());
-                        break;
-                    case "Cowpoke Chili":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeCowpokeChili());
-                        break;
-                    case "Dakota Double Burger":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeDakotaDoubleBurger());
-                        break;
-                    case "Jerked Soda":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeJerkedSoda());
-                        break;
-                    case "Pan de Campo":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeSide("Pan de Campo"));
-                        break;
-                    case "Peco's Pulled Pork":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizePecosPulledPork());
-                        break;
-                    case "Rustler's Ribs":
-                        OpenCustomizationScreen(orderArr[orderItemNum], null);
-                        break;
-                    case "Texas Tea":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeTexasTea());
-                        break;
-                    case "Texas Triple Burger":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeTexasTripleBurger());
-                        break;
-                    case "Trail Burger":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeTrailBurger());
-                        break;
-                    case "Water":
-                        OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeWater());
-                        break;
+                    switch (orderItem)
+                    {
+                        case "Angry Chicken":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeAngryChicken());
+                            break;
+                        case "Baked Beans":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeSide("Baked Beans"));
+                            break;
+                        case "Chili Cheese Fries":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeSide("Chili Cheese Fries"));
+                            break;
+                        case "Corn Dodgers":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeSide("Corn Dodgers"));
+                            break;
+                        case "Cowboy Coffee":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeCowboyCoffee());
+                            break;
+                        case "Cowpoke Chili":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeCowpokeChili());
+                            break;
+                        case "Dakota Double Burger":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeDakotaDoubleBurger());
+                            break;
+                        case "Jerked Soda":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeJerkedSoda());
+                            break;
+                        case "Pan de Campo":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeSide("Pan de Campo"));
+                            break;
+                        case "Peco's Pulled Pork":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizePecosPulledPork());
+                            break;
+                        case "Rustler's Ribs":
+                            OpenCustomizationScreen(orderArr[orderItemNum], null);
+                            break;
+                        case "Texas Tea":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeTexasTea());
+                            break;
+                        case "Texas Triple Burger":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeTexasTripleBurger());
+                            break;
+                        case "Trail Burger":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeTrailBurger());
+                            break;
+                        case "Water":
+                            OpenCustomizationScreen(orderArr[orderItemNum], new CustomizeWater());
+                            break;
+                    }
                 }
             }
         }

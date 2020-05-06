@@ -15,8 +15,8 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -32,6 +32,6 @@
             <Button Name="CancelOrderButton" Click="OnCancelOrderButtonClicked">Cancel Order</Button>
             <Button Name="CompleteOrderButton" Click="OnCompleteOrderButtonClicked">Complete Order</Button>
         </StackPanel>
-        <local:OrderSummaryControl Grid.Column="1" Grid.Row="1"/>
+        <local:OrderSummaryControl Grid.RowSpan="2" Grid.Column="1" Grid.Row="1"/>
     </Grid>
 </UserControl>

@@ -8,21 +8,28 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="CheckBox">
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="28"/>
         </Style>
     </UserControl.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="135"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="45"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" FontSize="30" Text="Dakota Double Burger"/>
-        <StackPanel Grid.Row="1" HorizontalAlignment="Left">
-            <TextBlock Text="Ingredients" FontSize="28"/>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontSize="30" Text="Dakota Double Burger"/>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="Ingredients" FontSize="29"/>
+        <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left">
             <CheckBox IsChecked="{Binding Path=Bun}" Content="Bun"/>
             <CheckBox IsChecked="{Binding Path=Cheese}" Content="Cheese"/>
             <CheckBox IsChecked="{Binding Path=Ketchup}" Content="Ketchup"/>
             <CheckBox IsChecked="{Binding Path=Lettuce}" Content="Lettuce"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left">
             <CheckBox IsChecked="{Binding Path=Mayo}" Content="Mayo"/>
             <CheckBox IsChecked="{Binding Path=Mustard}" Content="Mustard"/>
             <CheckBox IsChecked="{Binding Path=Pickle}" Content="Pickle"/>

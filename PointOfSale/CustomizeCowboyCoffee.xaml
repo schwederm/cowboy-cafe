@@ -8,15 +8,15 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="CheckBox">
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="28"/>
         </Style>
         <Style TargetType="RadioButton">
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="28"/>
         </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="215"/>
+            <ColumnDefinition Width="235"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -25,14 +25,14 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontSize="30" Text="Cowboy Coffee"/>
         <StackPanel Grid.Row="1" HorizontalAlignment="Left">
-            <TextBlock Text="Ingredients" FontSize="28"/>
+            <TextBlock Text="Ingredients" FontSize="29"/>
             <CheckBox IsChecked="{Binding Path=Decaf}" Content="Decaf"/>
             <CheckBox IsChecked="{Binding Path=Ice}" Content="Ice"/>
             <CheckBox IsChecked="{Binding Path=RoomForCream}" Content="Room for Cream"/>
         </StackPanel>
         <!--User can select the size of the Cowboy Coffee by choosing one of the three radio buttons-->
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
-            <TextBlock Text="Size" FontSize="28"/>
+            <TextBlock Text="Size" FontSize="29"/>
             <RadioButton Name="SmallRadioButton" Click="RadioButtonClick" Content="Small"/>
             <RadioButton Name="MediumRadioButton" Click="RadioButtonClick" Content="Medium"/>
             <RadioButton Name="LargeRadioButton" Click="RadioButtonClick" Content="Large"/>

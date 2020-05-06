@@ -8,16 +8,16 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="RadioButton">
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="28"/>
         </Style>
         <Style TargetType="CheckBox">
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="28"/>
         </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="160"/>
-            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="195"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -26,12 +26,12 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.ColumnSpan="3" FontSize="30" Text="Jerked Soda"/>
         <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
-            <TextBlock Text="Ingredients" FontSize="28"/>
+            <TextBlock Text="Ingredients" FontSize="29"/>
             <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding Path=Ice}" Content="Ice"/>
         </StackPanel>
         <!--User can select the flavor of the Jerked Soda by choosing one of the five radio buttons-->
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
-            <TextBlock Text="Soda Flavor" FontSize="28"/>
+            <TextBlock Text="Soda Flavor" FontSize="29"/>
             <RadioButton Name="BirchBeerRadioButton" Click="SodaFlavorRadioButtonClick" Content="Birch Beer"/>
             <RadioButton Name="CreamSodaRadioButton" Click="SodaFlavorRadioButtonClick" Content="Cream Soda"/>
             <RadioButton Name="OrangeSodaRadioButton" Click="SodaFlavorRadioButtonClick" Content="Orange Soda"/>
@@ -40,7 +40,7 @@
         </StackPanel>
         <!--User can select the size of the Jerked Soda by choosing one of the three radio buttons-->
         <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left">
-            <TextBlock Text="Size" FontSize="28"/>
+            <TextBlock Text="Size" FontSize="29"/>
             <RadioButton Name="SmallRadioButton" Click="SizeRadioButtonClick" Content="Small"/>
             <RadioButton Name="MediumRadioButton" Click="SizeRadioButtonClick" Content="Medium"/>
             <RadioButton Name="LargeRadioButton" Click="SizeRadioButtonClick" Content="Large"/>

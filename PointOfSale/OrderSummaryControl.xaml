@@ -13,9 +13,9 @@
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="290"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
                 <TextBlock Text="Order "/>
@@ -23,12 +23,12 @@
         </StackPanel>
         <!--ListView has two inner columns to seperate the item, the item's price, and its remove item button-->
         <!--There is also another ListView for each item in case the item has special instructions-->
-        <ListView Grid.Row="1" Height="290" ItemsSource="{Binding Path=Items}" SelectionChanged="OnOrderItemClicked" >
+        <ListView Grid.Row="1" ItemsSource="{Binding Path=Items}" SelectionChanged="OnOrderItemClicked" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="190"/>
+                            <ColumnDefinition Width="210"/>
                             <ColumnDefinition Width="30"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
@@ -46,7 +46,7 @@
         </ListView>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <TextBlock Text="Subtotal"/>
-            <TextBlock Margin="105,0,0,0" Text="{Binding Path=Subtotal,StringFormat=c}"/>
+            <TextBlock Margin="150,0,0,0" Text="{Binding Path=Subtotal,StringFormat=c}"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -8,21 +8,21 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="CheckBox">
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="28"/>
         </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="135"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="45"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontSize="30" Text="Texas Triple Burger"/>
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="Ingredients" FontSize="28"/>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="Ingredients" FontSize="29"/>
         <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left">
             <CheckBox IsChecked="{Binding Path=Bacon}" Content="Bacon"/>
             <CheckBox IsChecked="{Binding Path=Bun}" Content="Bun"/>

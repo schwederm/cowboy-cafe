@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Extensions;
+using CashRegister;
 
 namespace PointOfSale
 {
@@ -19,9 +21,14 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        /// <summary>
+        /// Carries the CashDrawer instance for all transactions.
+        /// </summary>
+        CashDrawer drawer;
         public OrderControl()
         {
             InitializeComponent();
+            drawer = new CashDrawer();
         }
 
         /// <summary>
@@ -54,13 +61,22 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Handles the Complete Order Button click and creates a new Order instance
+        /// Handles the Complete Order Button click, swaps the Container to the TranscationControl, calculates the tax and total of the current
+        /// transaction, and sets the drawer variable of the TransactionControl to this control's drawer variable
         /// </summary>
         /// <param name="sender">The Complete Order button</param>
         /// <param name="e">The event arguments</param>
         void OnCompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
+            var screen = new TransactionControl();
+
+            var orderControl = this;
+            if (orderControl == null) throw new Exception("An ancestor of OrderControl expected be an OrderControl instead of null");
+
+            screen.DataContext = this.DataContext;
+            screen.CalculateTaxAndTotal();
+            screen.drawer = drawer;
+            orderControl.SwapScreen(screen);
         }
     }
 }

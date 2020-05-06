@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="PointOfSale.CashControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Coins" FontSize="25" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center"/>
+        <Label Content="Bills" FontSize="25" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center"/>
+        <Label Content="Quantity" FontSize="25" Grid.Column="0" Grid.Row="8" HorizontalContentAlignment="Center"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Pennies" FontSize="20" Grid.Column="0" Grid.Row="1" Tag="Pennies"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Nickels" FontSize="20" Grid.Column="0" Grid.Row="2" Tag="Nickels"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Dimes" FontSize="20" Grid.Column="0" Grid.Row="3" Tag="Dimes"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Quarters" FontSize="20" Grid.Column="0" Grid.Row="4" Tag="Quarters"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Half-Dollars" FontSize="20" Grid.Column="0" Grid.Row="5" Tag="HalfDollars"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Dollars" FontSize="20" Grid.Column="0" Grid.Row="6" Tag="Dollars"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Ones" FontSize="20" Grid.Column="1" Grid.Row="1" Tag="Ones"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Twos" FontSize="20" Grid.Column="1" Grid.Row="2" Tag="Twos"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Fives" FontSize="20" Grid.Column="1" Grid.Row="3" Tag="Fives"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Tens" FontSize="20" Grid.Column="1" Grid.Row="4" Tag="Tens"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Twenties" FontSize="20" Grid.Column="1" Grid.Row="5" Tag="Twenties"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Fifties" FontSize="20" Grid.Column="1" Grid.Row="6" Tag="Fifties"/>
+        <Button Click="AddingBillsAndCoinsButtonClicked" Content="Hundreds" FontSize="20" Grid.Column="1" Grid.Row="7" Tag="Hundreds"/>
+        <Grid Grid.Column="1" Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Click="QuantityButtonClicked" Content="-" FontSize="25" Grid.Column="0" HorizontalContentAlignment="Center" Tag="Remove"/>
+            <TextBlock FontSize="25" Grid.Column="1" TextAlignment="Center" Name="QuantityLabel"/>
+            <Button Click="QuantityButtonClicked" Content="+" FontSize="25" Grid.Column="2" HorizontalContentAlignment="Center" Tag="Add"/>
+        </Grid>
+        <ListView Grid.Column="2" Grid.RowSpan="6" Name="AddedMoneyList"/>
+        <Grid Grid.Column="2" Grid.Row="6" Grid.RowSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock FontSize="25" Grid.Column="0" Grid.Row="0" Text="Total"/>
+            <TextBlock FontSize="25" Grid.Column="1" Grid.Row="0" Name="TotalLabel"/>
+            <TextBlock FontSize="25" Grid.Column="0" Grid.Row="1" Text="Total Paid"/>
+            <TextBlock FontSize="25" Grid.Column="1" Grid.Row="1" Name="TotalPaidLabel"/>
+            <TextBlock FontSize="25" Grid.Column="0" Grid.Row="2" Name="ChangeTB" Text="Change" Visibility="Hidden"/>
+            <TextBlock FontSize="25" Grid.Column="1" Grid.Row="2" Name="ChangeLabel"/>
+        </Grid>
+    </Grid>
+</UserControl>
