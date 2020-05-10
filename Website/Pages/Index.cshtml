@@ -1,0 +1,185 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    //throw new Exception("Testing...");
+}
+
+<! Introduction for Cowboy Cafe/>
+<div class="text-center">
+    <h1 class="display-4">Cowboy Cafe</h1>
+    
+    <p>We at Cowboy Cafe are proud to bring you authentic trail meals from the American West. Shake off the dust on your boots and sake your 
+       thirst with one of our old-fashioned hand-jerked sodas. Dip your Pan de Campo into a bowl of beans. Or conquer the mighty Texas Triple 
+       Burger! You've had a hard ride- so take it easy with us.
+    </p>
+</div>
+
+<div class="menu">
+    <! Organizes a list of entrees and displays the according price and calories/>
+    <div class="menu-entree">
+        <h2>Entrees</h2>
+
+        <ul>
+            @{
+                foreach (CowboyCafe.Data.IOrderItem item in Model.Menu)
+                {
+                    if (item is CowboyCafe.Data.Entree e)
+                    {
+                        <h3>@item.ToString()</h3>
+                        <li style="list-style-type: none;">
+                            <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                            <b>Calories: </b> <i>@item.Calories</i><br />
+                        </li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+
+    <! Organizes a list of all sides in by displaying the according item and their size's calories and price/>
+    <div class="menu-side">
+        <h2>Sides</h2>
+
+        <ul>
+            @{
+                int numSides = 0;
+                foreach (CowboyCafe.Data.IOrderItem item in Model.Menu)
+                {
+                    if (item is CowboyCafe.Data.Side s)
+                    {
+                        if (numSides % 3 == 0)
+                        {
+                            <h3>@item.ToString().Substring(5)</h3>
+                        }
+                        <li style="list-style-type: none;">
+                            @{
+                                if (numSides % 3 == 0)
+                                {
+                                    <h4>Small</h4>
+                                    <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                                    <b>Calories: </b> <i>@item.Calories</i><br />
+                                }
+
+                                else if (numSides % 3 == 1)
+                                {
+                                    <h4>Medium</h4>
+                                    <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                                    <b>Calories: </b> <i>@item.Calories</i><br />
+                                }
+
+                                else
+                                {
+                                    <h4>Large</h4>
+                                    <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                                    <b>Calories: </b> <i>@item.Calories</i><br />
+                                }
+                                numSides++;
+                            }
+                        </li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+
+    <! Organizes a list of drinks and displays the according sizes with their price and calories. The water has the same price and calories for
+       each size/>
+    <div class="menu-drink">
+        <h2>Drinks</h2>
+
+        <ul>
+            @{
+                numSides = 0;
+                foreach (CowboyCafe.Data.IOrderItem item in Model.Menu)
+                {
+                    if (item is CowboyCafe.Data.Drink d)
+                    {
+                        if (!item.ToString().Contains("Water"))
+                        {
+                            if (numSides % 3 == 0)
+                            {
+                                if (item.ToString().Contains("Jerked Soda"))
+                                {
+                                    <h3>Jerked Soda</h3>
+                                }
+                                else if (item.ToString().Contains("Texas"))
+                                {
+                                    <h3>Texas Tea</h3>
+                                }
+                                else
+                                {
+                                    <h3>Cowboy Coffee</h3>
+                                }
+                            }
+                            <li style="list-style-type: none;">
+                                @{
+                                    if (numSides % 3 == 0)
+                                    {
+                                        <h4>Small</h4>
+                                        <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                                        if (item.ToString().Contains("Texas Sweet"))
+                                        {
+                                            CowboyCafe.Data.TexasTea tea = new CowboyCafe.Data.TexasTea();
+                                            tea.Sweet = false;
+                                            <b>(Sweet) Calories: </b> <i>@item.Calories</i><br />
+                                            <b>(Plain) Calories: </b> <i>@tea.Calories</i><br />
+                                        }
+                                        else
+                                        {
+                                            <b>Calories: </b> <i>@item.Calories</i><br />
+                                        }
+                                    }
+
+                                    else if (numSides % 3 == 1)
+                                    {
+                                        <h4>Medium</h4>
+                                        <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                                        if (item.ToString().Contains("Texas"))
+                                        {
+                                            CowboyCafe.Data.TexasTea tea = new CowboyCafe.Data.TexasTea(CowboyCafe.Data.Size.Medium);
+                                            tea.Sweet = false;
+                                            <b>(Sweet) Calories: </b> <i>@item.Calories</i><br />
+                                            <b>(Plain) Calories: </b> <i>@tea.Calories</i><br />
+                                        }
+                                        else
+                                        {
+                                            <b>Calories: </b> <i>@item.Calories</i><br />
+                                        }
+                                    }
+
+                                    else
+                                    {
+                                        <h4>Large</h4>
+                                        <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                                        if (item.ToString().Contains("Texas"))
+                                        {
+                                            CowboyCafe.Data.TexasTea tea = new CowboyCafe.Data.TexasTea(CowboyCafe.Data.Size.Large);
+                                            tea.Sweet = false;
+                                            <b>(Sweet) Calories: </b> <i>@item.Calories</i><br />
+                                            <b>(Plain) Calories: </b> <i>@tea.Calories</i><br />
+                                        }
+                                        else
+                                        {
+                                            <b>Calories: </b> <i>@item.Calories</i><br />
+                                        }
+                                    }
+                                    numSides++;
+                                }
+                            </li>
+                        }
+                        else
+                        {
+                            <h3>@item.ToString().Substring(5)</h3>
+                            <li style="list-style-type: none;">
+                                <h4>Small, Medium, & Large</h4>
+                                <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                                <b>Calories: </b> <i>@item.Calories</i><br />
+                            </li>
+                        }
+                    }
+                }
+            }
+        </ul>
+    </div>
+</div>

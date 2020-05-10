@@ -68,6 +68,20 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Constructor with no parameters
+        /// </summary>
+        public BakedBeans() { }
+
+        /// <summary>
+        /// Constructor with size parameter
+        /// </summary>
+        /// <param name="s">Passed in size</param>
+        public BakedBeans(Size s)
+        {
+            this.Size = s;
+        }
+
+        /// <summary>
         /// Returns the size and name of the Baked Beans
         /// </summary>
         /// <returns></returns>

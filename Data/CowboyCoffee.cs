@@ -112,6 +112,20 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Constructor with no parameters
+        /// </summary>
+        public CowboyCoffee() { }
+
+        /// <summary>
+        /// Constructor with size parameter
+        /// </summary>
+        /// <param name="s">Passed in size</param>
+        public CowboyCoffee(Size s)
+        {
+            this.Size = s;
+        }
+
+        /// <summary>
         /// Returns the size and name of the Cowboy Coffee and if it's decaf or not
         /// </summary>
         /// <returns></returns>

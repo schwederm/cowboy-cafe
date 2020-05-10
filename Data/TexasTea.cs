@@ -110,6 +110,20 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Constructor with no parameters
+        /// </summary>
+        public TexasTea() { }
+
+        /// <summary>
+        /// Constructor with size parameter
+        /// </summary>
+        /// <param name="s">Passed in size</param>
+        public TexasTea(Size s)
+        {
+            this.Size = s;
+        }
+
+        /// <summary>
         /// Returns the name of the Texas Tea and if the tea is sweet or not
         /// </summary>
         /// <returns></returns>

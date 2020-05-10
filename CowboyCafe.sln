@@ -12,7 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{9FC942E0-8D0C-4F37-A010-67513A57F351}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{9FC942E0-8D0C-4F37-A010-67513A57F351}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Website\Website.csproj", "{5996852B-1734-4981-AC9B-33F37D7B5461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{9FC942E0-8D0C-4F37-A010-67513A57F351}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FC942E0-8D0C-4F37-A010-67513A57F351}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FC942E0-8D0C-4F37-A010-67513A57F351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5996852B-1734-4981-AC9B-33F37D7B5461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5996852B-1734-4981-AC9B-33F37D7B5461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5996852B-1734-4981-AC9B-33F37D7B5461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5996852B-1734-4981-AC9B-33F37D7B5461}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

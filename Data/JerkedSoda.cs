@@ -85,6 +85,20 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Constructor with no parameters
+        /// </summary>
+        public JerkedSoda() { }
+
+        /// <summary>
+        /// Constructor with size parameter
+        /// </summary>
+        /// <param name="s">Passed in size</param>
+        public JerkedSoda(Size s)
+        {
+            this.Size = s;
+        }
+
+        /// <summary>
         /// Returns the size, flavor and name of the Jerked Soda
         /// </summary>
         /// <returns></returns>
