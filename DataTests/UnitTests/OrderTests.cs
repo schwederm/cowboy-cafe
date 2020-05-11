@@ -12,6 +12,10 @@ namespace CowboyCafe.DataTests
     {
         public double Price { get; set; }
 
+        public uint Calories { get; set; }
+
+        public string Type { get; set; }
+
         public IEnumerable<string> SpecialInstructions { get; set; }
     }
 

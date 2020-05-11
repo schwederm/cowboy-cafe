@@ -14,6 +14,24 @@ namespace Website.Pages
     {
         public IEnumerable<IOrderItem> Menu { get; protected set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerms { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string[] TypesOfItems { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public uint? CaloriesMin { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public uint? CaloriesMax { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public double? PriceMin { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public double? PriceMax { get; set; }
+
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
@@ -26,7 +44,10 @@ namespace Website.Pages
         /// </summary>
         public void OnGet()
         {
-            Menu = CCMenu.CompleteMenu();
+            Menu = CCMenu.Search(SearchTerms);
+            Menu = CCMenu.FilterByCategory(Menu, TypesOfItems);
+            Menu = CCMenu.FilterByCalories(Menu, CaloriesMin, CaloriesMax);
+            Menu = CCMenu.FilterByPrice(Menu, PriceMin, PriceMax);
         }
     }
 }

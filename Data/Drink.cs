@@ -72,5 +72,7 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
+
+        public string Type => "Drink";
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace CowboyCafe.Data
 {
@@ -81,7 +82,7 @@ namespace CowboyCafe.Data
         /// Builds a list of the complete menu
         /// </summary>
         /// <returns>List of the menu</returns>
-        public static IEnumerable<IOrderItem> CompleteMenu()
+        public static IEnumerable<IOrderItem> All()
         {
             List<IOrderItem> menu = new List<IOrderItem>();
 
@@ -90,6 +91,118 @@ namespace CowboyCafe.Data
             menu.AddRange(Drinks());
 
             return menu;
+        }
+
+        public static IEnumerable<IOrderItem> Search(string terms)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (terms == null) return All();
+
+            foreach (IOrderItem item in All())
+            {
+                if (item.ToString() != null && item.ToString().Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    results.Add(item);
+            }
+
+            return results;
+        }
+
+        public static string[] TypesOfItem
+        {
+            get => new string[]
+            {
+                "Entree",
+                "Side",
+                "Drink"
+            };
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> menu, IEnumerable<string> types)
+        {
+            if (types == null || types.Count() == 0) return menu;
+
+            List<IOrderItem> results = new List<IOrderItem>();
+            
+            foreach (IOrderItem item in menu)
+            {
+                if (item.Type != null && types.Contains(item.Type))
+                    results.Add(item);
+            }
+
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> menu, uint? min, uint? max)
+        {
+            if (min == null && max == null) return menu;
+
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (min == null)
+            {
+                foreach(IOrderItem item in menu)
+                {
+                    if (item.Calories <= max)
+                        results.Add(item);
+                }
+            }
+            
+            if (max == null)
+            {
+                foreach(IOrderItem item in menu)
+                {
+                    if (item.Calories >= min)
+                        results.Add(item);
+                }
+            }
+
+            else
+            {
+                foreach(IOrderItem item in menu)
+                {
+                    if (item.Calories >= min && item.Calories <= max)
+                        results.Add(item);
+                }
+            }
+
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> menu, double? min, double? max)
+        {
+            if (min == null && max == null) return menu;
+
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (min == null)
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item.Price <= max)
+                        results.Add(item);
+                }
+            }
+
+            if (max == null)
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item.Price >= min)
+                        results.Add(item);
+                }
+            }
+
+            else
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item.Price >= min && item.Price <= max)
+                        results.Add(item);
+                }
+            }
+
+            return results;
         }
     }
 }
