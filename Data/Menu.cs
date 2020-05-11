@@ -93,6 +93,11 @@ namespace CowboyCafe.Data
             return menu;
         }
 
+        /// <summary>
+        /// Returns a list of IOrderItems that reflects the searched terms
+        /// </summary>
+        /// <param name="terms">The searched terms</param>
+        /// <returns>List of IOrderItems according to the searched terms</returns>
         public static IEnumerable<IOrderItem> Search(string terms)
         {
             List<IOrderItem> results = new List<IOrderItem>();
@@ -108,6 +113,9 @@ namespace CowboyCafe.Data
             return results;
         }
 
+        /// <summary>
+        /// Types of Items on the menu
+        /// </summary>
         public static string[] TypesOfItem
         {
             get => new string[]
@@ -118,6 +126,12 @@ namespace CowboyCafe.Data
             };
         }
 
+        /// <summary>
+        /// Returns a list of IOrderItems that reflects the types of items passed in
+        /// </summary>
+        /// <param name="menu">The menu passed in</param>
+        /// <param name="types">The types of items the user is looking for</param>
+        /// <returns>List of IOrderItems that reflects the types of items</returns>
         public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> menu, IEnumerable<string> types)
         {
             if (types == null || types.Count() == 0) return menu;
@@ -133,6 +147,13 @@ namespace CowboyCafe.Data
             return results;
         }
 
+        /// <summary>
+        /// Returns a list of IOrderItems that reflects the range of calories passed in
+        /// </summary>
+        /// <param name="menu">The menu passed in</param>
+        /// <param name="min">The calories minimum</param>
+        /// <param name="max">The calories maximum</param>
+        /// <returns>List of IOrderItems that reflects the range of calories</returns>
         public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> menu, uint? min, uint? max)
         {
             if (min == null && max == null) return menu;
@@ -169,6 +190,13 @@ namespace CowboyCafe.Data
             return results;
         }
 
+        /// <summary>
+        /// Returns a list of IOrderItems that reflects the range of prices passed in
+        /// </summary>
+        /// <param name="menu">The menu passed in</param>
+        /// <param name="min">The price minimum</param>
+        /// <param name="max">The price maximum</param>
+        /// <returns>List of IOrderItems that reflects the range of prices</returns>
         public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> menu, double? min, double? max)
         {
             if (min == null && max == null) return menu;
