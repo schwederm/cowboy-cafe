@@ -16,12 +16,12 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Holds the overarching price double for all implented Entree classes
         /// </summary>
-        public abstract double Price { get; }
+        public abstract double? Price { get; }
 
         /// <summary>
         /// Holds the overarching calories uint for all implented Entree classes
         /// </summary>
-        public abstract uint Calories { get; }
+        public abstract uint? Calories { get; }
 
         /// <summary>
         /// Holds the overarching special instructions list for all implented Entree classes

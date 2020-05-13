@@ -69,3 +69,87 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/* Displays form in a grid with 5 columns and 2 rows */
+form#menu-database {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+/* Centers text in class text-center */
+.text-center {
+    text-align: center;
+}
+
+/* Places div search in between columns 1 & 3 */
+#search {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+}
+
+/* Displays div flavors in flex display with column direction below div search and filters */
+#flavors {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+/* Displays div filters between columns 1 & 5 in flex display with row direction */
+#filters {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+#filters-type {
+    margin-right: 50px;
+}
+
+#filters-calories {
+    margin-right: 50px;
+}
+
+#filter-price {
+    margin-right: 50px;
+}
+
+/* Displays a div menu in flex display with row direction */
+#menu {
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+}
+
+.menu-entree {
+    margin-right: 50px;
+    min-width: 250px;
+}
+
+.menu-side {
+    margin-right: 50px;
+    min-width: 250px;
+}
+
+.menu-drink {
+    min-width: 300px;
+}
+
+/* If screen has width less than 490 px displays a div menu with column direction */
+@media (max-width: 490px) {
+    .menu {
+        flex-direction: column;
+    }
+}
+
+ul.menu.list {
+    padding: 0;
+    margin: 0;
+}
+
+.clearfix {
+    clear: both;
+}

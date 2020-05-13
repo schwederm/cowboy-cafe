@@ -29,8 +29,8 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Keeps track of the subtotal price of the items ordered.
         /// </summary>
-        double subtotal = 0;
-        public double Subtotal => subtotal;
+        double? subtotal = 0;
+        public double? Subtotal => subtotal;
 
         /// <summary>
         /// Keeps track of the current order number.

@@ -19,7 +19,7 @@ namespace CowboyCafe.DataTests
         public void DefaultCaloriesShouldBeCorrect()
         {
             var chicken = new AngryChicken();
-            Assert.Equal<uint>(190, chicken.Calories);
+            Assert.Equal<uint?>(190, chicken.Calories);
         }
 
         [Fact]

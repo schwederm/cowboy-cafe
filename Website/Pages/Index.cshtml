@@ -15,13 +15,14 @@
     </p>
 </div>
 
-<form class="menu-database">
-    <div class="search">
-        <input type="text" name="SearchTerms" value="@Model.SearchTerms"/>
-        <input type="submit" value="Search"/>
+<form id="menu-database">
+    <div id="search">
+        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+        <input type="submit" value="Search" />
     </div>
 
-    <div class="filters">
+    <div id="filters">
+        <div id="filters-type">
         <h4>Types of Items</h4>
         @foreach (String type in CowboyCafe.Data.Menu.TypesOfItem)
         {
@@ -30,30 +31,35 @@
                 @type
             </label>
         }
+        </div>
 
+        <div id="filters-calories">
         <h4>Calories</h4>
         <div>
             Between
-            <input name="CaloriesMin" type="number" min="0" max="1000" step="10" placeholder="min" value="@Model.CaloriesMin"/>
+            <input name="CaloriesMin" type="number" min="0" max="1000" step="10" placeholder="min" value="@Model.CaloriesMin" />
             and
-            <input name="CaloriesMax" type="number" min="0" max="1000" step="10" placeholder="max" value="@Model.CaloriesMax"/>
+            <input name="CaloriesMax" type="number" min="0" max="1000" step="10" placeholder="max" value="@Model.CaloriesMax" />
         </div>
+         </div>
 
+        <div id="filters-price">
         <h4>Price</h4>
         <div>
             Between $
-            <input name="PriceMin" type="number" min="0" max="10" step="0.1" placeholder="min" value="@Model.PriceMin"/>
+            <input name="PriceMin" type="number" min="0" max="10" step="0.1" placeholder="min" value="@Model.PriceMin" />
             and $
-            <input name="PriceMax" type="number" min="0" max="10" step="0.1" placeholder="max" value="@Model.PriceMax"/>
+            <input name="PriceMax" type="number" min="0" max="10" step="0.1" placeholder="max" value="@Model.PriceMax" />
+        </div>
         </div>
     </div>
 
-    <div class="menu">
+    <div id="menu">
         <! Organizes a list of entrees and displays the according price and calories/>
         <div class="menu-entree">
             <h2>Entrees</h2>
 
-            <ul>
+            <ul class="menu-list">
                 @{
                     foreach (CowboyCafe.Data.IOrderItem item in Model.Menu)
                     {
@@ -61,7 +67,7 @@
                         {
                             <h3>@item.ToString()</h3>
                             <li style="list-style-type: none;">
-                                <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                                <b>Price: </b> <i>$@item.Price.ToString()</i><br />
                                 <b>Calories: </b> <i>@item.Calories</i><br />
                             </li>
                         }
@@ -74,15 +80,10 @@
         <div class="menu-side">
             <h2>Sides</h2>
 
-            <ul>
-                @{
-                    foreach (CowboyCafe.Data.IOrderItem item in Model.Menu)
-                    {
-                        if (item is CowboyCafe.Data.Side s)
-                        {
-                            <h3>@item.ToString()</h3>
+            <ul class="menu-list"
+                @{ foreach (CowboyCafe.Data.IOrderItem item in Model.Menu) { if (item is CowboyCafe.Data.Side s) { <h3>@item.ToString()</h3>
                             <li style="list-style-type: none;">
-                                <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                                <b>Price: </b> <i>$@item.Price.ToString()</i><br />
                                 <b>Calories: </b> <i>@item.Calories</i><br />
                             </li>
                         }
@@ -92,11 +93,11 @@
         </div>
 
         <! Organizes a list of drinks and displays the according sizes with their price and calories. The water has the same price and calories for
-           each size/>
+        each size/>
         <div class="menu-drink">
             <h2>Drinks</h2>
 
-            <ul>
+            <ul class="menu-list">
                 @{
                     foreach (CowboyCafe.Data.IOrderItem item in Model.Menu)
                     {
@@ -107,7 +108,7 @@
                                 <h3>@item.ToString().Substring(5)</h3>
                                 <li style="list-style-type: none;">
                                     <b>Small, Medium, and Large</b><br />
-                                    <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                                    <b>Price: </b> <i>$@item.Price.ToString()</i><br />
                                     <b>Calories: </b> <i>@item.Calories</i><br />
                                 </li>
                             }
@@ -115,7 +116,7 @@
                             {
                                 <h3>@item.ToString()</h3>
                                 <li style="list-style-type: none;">
-                                    <b>Price: </b> <i>@item.Price.ToString("c")</i><br />
+                                    <b>Price: </b> <i>$@item.Price.ToString()</i><br />
                                     <b>Calories: </b> <i>@item.Calories</i><br />
                                 </li>
                             }
@@ -125,4 +126,23 @@
             </ul>
         </div>
     </div>
+
+    <div id="flavors">
+        <h4>Jerked Soda Flavors</h4>
+        @{
+            bool flavors = false;
+            foreach (CowboyCafe.Data.IOrderItem item in Model.Menu)
+            {
+                if (item.ToString() != null && item.ToString().Contains("Jerked Soda", StringComparison.CurrentCultureIgnoreCase) && !flavors)
+                {
+                    foreach (string flavor in Model.Flavors)
+                    {
+                        <b>@flavor</b>
+                    }
+                    flavors = true;
+                }
+            }
+        }
+    </div>
+    <div class="clearfix"></div>
 </form>

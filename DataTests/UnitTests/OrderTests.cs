@@ -10,9 +10,9 @@ namespace CowboyCafe.DataTests
 {
     class MockOrderItem : IOrderItem
     {
-        public double Price { get; set; }
+        public double? Price { get; set; }
 
-        public uint Calories { get; set; }
+        public uint? Calories { get; set; }
 
         public string Type { get; set; }
 

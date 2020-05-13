@@ -75,7 +75,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The price of the Cowpoke Chili
         /// </summary>
-        public override double Price
+        public override double? Price
         {
             get
             {
@@ -86,7 +86,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The calories of the Cowpoke Chili
         /// </summary>
-        public override uint Calories
+        public override uint? Calories
         {
             get
             {

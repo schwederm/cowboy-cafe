@@ -9,12 +9,12 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The price for the order item
         /// </summary>
-        double Price { get; }
+        double? Price { get; }
 
         /// <summary>
         /// The calories for the order item
         /// </summary>
-        uint Calories { get; }
+        uint? Calories { get; }
 
         string Type { get; }
 
